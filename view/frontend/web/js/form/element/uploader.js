@@ -1,10 +1,6 @@
 /**
- *
  * @description Uploader JS
- *
- * @author Bina Commerce      <https://www.binacommerce.com>
- * @author C. M. de Picciotto <cmdepicciotto@binacommerce.com>
- *
+ * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 define([
     'Magento_Ui/js/form/element/file-uploader'
@@ -25,27 +21,13 @@ define([
         },
 
         /**
-         *
          * Initialize
          *
          * @returns {void}
-         *
          * @public
-         *
          */
         initialize: function () {
-            /**
-             *
-             * @note Initialize parent logic
-             *
-             */
             this._super();
-
-            /**
-             *
-             * @note Init field name
-             *
-             */
             this.fieldName = this.fieldScope + '[' + this.fieldAttribute + ']';
         }
     });

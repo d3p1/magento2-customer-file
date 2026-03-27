@@ -1,11 +1,7 @@
 <?php
 /**
- *
  * @description Uploader controller
- *
- * @author Bina Commerce      <https://www.binacommerce.com>
- * @author C. M. de Picciotto <cmdepicciotto@binacommerce.com>
- *
+ * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 namespace Bina\CustomerFile\Controller;
 
@@ -21,63 +17,38 @@ use Bina\CustomerFile\Api\FileManagementInterface;
 class Uploader extends Action implements HttpPostActionInterface
 {
     /**
-     *
      * @var FileManagementInterface
-     *
      */
     protected $_fileManagement;
 
     /**
-     *
      * @var string
-     *
      */
     protected $_attributeCode;
 
     /**
-     *
      * Constructor
      *
      * @param FileManagementInterface $fileManagement
      * @param string                  $attributeCode
      * @param Context                 $context
-     *
      */
     public function __construct(
         FileManagementInterface $fileManagement,
                                 $attributeCode,
         Context                 $context
     ) {
-        /**
-         *
-         * @note Init file management
-         *
-         */
         $this->_fileManagement = $fileManagement;
+        $this->_attributeCode  = $attributeCode;
 
-        /**
-         *
-         * @note Init attribute code
-         *
-         */
-        $this->_attributeCode = $attributeCode;
-
-        /**
-         *
-         * @note Parent constructor
-         *
-         */
         parent::__construct($context);
     }
 
     /**
-     *
      * Execute
      *
      * @return Json
-     *
      * @throws Exception
-     *
      */
     public function execute()
     {
@@ -85,39 +56,19 @@ class Uploader extends Action implements HttpPostActionInterface
             /** @var HttpRequest $request */
             $request = $this->getRequest();
 
-            /**
-             *
-             * @note Validate it is an AJAX request
-             *
-             */
             if (!$request->isAjax()) {
                 throw new Exception(__('Invalid request.'));
             }
 
-            /**
-             *
-             * @note Upload
-             *
-             */
             $result = $this->_fileManagement->upload($this->_attributeCode, 'customer');
         }
         catch (Exception $e) {
-            /**
-             *
-             * @note Init result with error data
-             *
-             */
             $result = [
                 'error'     => $e->getMessage(),
                 'errorcode' => $e->getCode(),
             ];
         }
 
-        /**
-         *
-         * @note Send response
-         *
-         */
         /** @var Json $resultJson */
         $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
         $resultJson->setData($result);

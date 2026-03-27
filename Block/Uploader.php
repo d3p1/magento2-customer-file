@@ -1,11 +1,7 @@
 <?php
 /**
- *
  * @description Uploader block
- *
- * @author Bina Commerce      <https://www.binacommerce.com>
- * @author C. M. de Picciotto <cmdepicciotto@binacommerce.com>
- *
+ * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 namespace Bina\CustomerFile\Block;
 
@@ -19,56 +15,41 @@ use Bina\CustomerFile\Api\FileManagementInterface;
 class Uploader extends Template
 {
     /**
-     *
      * @var FileManagementInterface
-     *
      */
     protected $_fileManagement;
 
     /**
-     *
      * @var CustomerMetadataInterface
-     *
      */
     protected $_attribute;
 
     /**
-     *
      * @var Json
-     *
      */
     protected $_json;
 
     /**
-     *
      * @var CustomerInterface|null
-     *
      */
     protected $_customer = null;
 
     /**
-     *
      * @var string|null
-     *
      */
     protected $_uploaderId = null;
 
     /**
-     *
      * @var string|null
-     *
      */
     protected $_uploadUrl = null;
 
     /**
-     *
      * @var string
-     *
      */
     protected $_template = 'Bina_CustomerFile::form/element/uploader.phtml';
 
     /**
-     *
      * Constructor
      *
      * @param FileManagementInterface   $fileManagement
@@ -77,7 +58,6 @@ class Uploader extends Template
      * @param Json                      $json
      * @param Context                   $context
      * @param array                     $data
-     *
      */
     public function __construct(
         FileManagementInterface   $fileManagement,
@@ -87,119 +67,54 @@ class Uploader extends Template
         Context                   $context,
         array                     $data = []
     ) {
-        /**
-         *
-         * @note Init file management
-         *
-         */
+        $this->_json           = $json;
         $this->_fileManagement = $fileManagement;
-
-        /**
-         *
-         * @note Init attribute
-         *
-         */
-        $this->_attribute = $customerMetadataService->getAttributeMetadata($attributeCode);
-
-        /**
-         *
-         * @note Init JSON helper
-         *
-         */
-        $this->_json = $json;
-
-        /**
-         *
-         * @note Call parent constructor
-         *
-         */
+        $this->_attribute      = $customerMetadataService->getAttributeMetadata(
+            $attributeCode
+        );
         parent::__construct($context, $data);
     }
 
     /**
-     *
      * Init customer
      *
-     * @param CustomerInterface $customer
-     *
+     * @param  CustomerInterface $customer
      * @return $this
-     *
      */
     public function initCustomer(CustomerInterface $customer)
     {
-        /**
-         *
-         * @note Set customer
-         *
-         */
         $this->_customer = $customer;
-
-        /**
-         *
-         * @note Return
-         *
-         */
         return $this;
     }
 
     /**
-     *
      * Init uploader ID
      *
-     * @param string $id
-     *
+     * @param  string $id
      * @return $this
-     *
      */
     public function initUploaderId($id)
     {
-        /**
-         *
-         * @note Set uploader ID
-         *
-         */
         $this->_uploaderId = sprintf('%s-uploader', $id);
-
-        /**
-         *
-         * @note Return
-         *
-         */
         return $this;
     }
 
     /**
-     *
      * Init upload URL
      *
-     * @param string $uri
-     *
+     * @param  string $uri
      * @return $this
-     *
      */
     public function initUploadUrl($uri)
     {
-        /**
-         *
-         * @note Set upload URL
-         *
-         */
         $this->_uploadUrl = $this->_urlBuilder->getUrl($uri);
-
-        /**
-         *
-         * @note Return
-         *
-         */
         return $this;
     }
 
     /**
-     *
      * Get customer
      *
      * @return CustomerInterface|null
-     *
      */
     public function getCustomer()
     {
@@ -207,11 +122,9 @@ class Uploader extends Template
     }
 
     /**
-     *
      * Get uploader ID
      *
      * @return string|null
-     *
      */
     public function getUploaderId()
     {
@@ -219,11 +132,9 @@ class Uploader extends Template
     }
 
     /**
-     *
      * Get upload URL
      *
      * @return string|null
-     *
      */
     public function getUploadUrl()
     {
@@ -231,11 +142,9 @@ class Uploader extends Template
     }
 
     /**
-     *
      * Get attribute data in JSON format
      *
      * @return string
-     *
      */
     public function getAttributeDataJson()
     {
@@ -243,11 +152,9 @@ class Uploader extends Template
     }
 
     /**
-     *
      * Get attribute code
      *
      * @return string
-     *
      */
     public function getAttributeCode()
     {
@@ -255,11 +162,9 @@ class Uploader extends Template
     }
 
     /**
-     *
      * Get attribute label
      *
      * @return string
-     *
      */
     public function getAttributeLabel()
     {
@@ -267,70 +172,43 @@ class Uploader extends Template
     }
 
     /**
-     *
      * Get attribute allowed extensions in JSON format
      *
      * @return string
-     *
      */
     public function getAttributeAllowedExtensionsJson()
     {
-        return $this->_json->serialize($this->_fileManagement->getAllowedExtensions($this->getAttributeCode()));
+        return $this->_json->serialize(
+            $this->_fileManagement->getAllowedExtensions(
+                $this->getAttributeCode()
+            )
+        );
     }
 
     /**
-     *
      * Get attribute data
      *
      * @return array
-     *
      */
     private function _getAttributeData()
     {
-        /**
-         *
-         * @note Init data
-         *
-         */
-        $data = [];
+        $data      = [];
+        $attribute = $this->getCustomer()->getCustomAttribute(
+            $this->_attribute->getAttributeCode()
+        );
 
-        /**
-         *
-         * @note Get customer attribute
-         *
-         */
-        $attribute = $this->getCustomer()->getCustomAttribute($this->_attribute->getAttributeCode());
-
-        /**
-         *
-         * @note Validate customer attribute
-         *
-         */
         if (!is_null($attribute)) {
-            /**
-             *
-             * @note Validate customer attribute value
-             *
-             */
             if (!is_null($value = $attribute->getValue())) {
-                /**
-                 *
-                 * @note Add data
-                 *
-                 */
                 $data[] = [
                     'file' => $value,
                     'name' => $this->getAttributeLabel(),
-                    'url'  => $this->_fileManagement->getFileUrl($this->getAttributeCode(), $value)
+                    'url'  => $this->_fileManagement->getFileUrl(
+                        $this->getAttributeCode(), $value
+                    )
                 ];
             }
         }
 
-        /**
-         *
-         * @note Return data
-         *
-         */
         return $data;
     }
 }

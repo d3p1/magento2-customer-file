@@ -1,40 +1,15 @@
 <!--
 /**
- *
  * @description Uploader preview template
- *
- * @author Bina Commerce      <https://www.binacommerce.com>
- * @author C. M. de Picciotto <cmdepicciotto@binacommerce.com>
- *
+ * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 -->
 <div class="file-uploader-summary">
-    <!--
-    /**
-     *
-     * @note Preview container
-     *
-     */
-    -->
     <div class="file-uploader-preview">
-        <!--
-        /**
-         *
-         * @note Preview image
-         *
-         */
-        -->
         <a class="preview-link preview-image" attr="href: $parent.getFilePreview($file), title: $file.name" target="_blank">
             <img tabindex="0" event="load: $parent.onPreviewLoad.bind($parent)" attr="src: $parent.getFilePreview($file), alt: $file.name">
         </a>
 
-        <!--
-        /**
-         *
-         * @note Actions
-         *
-         */
-        -->
         <div class="actions">
             <button type="button"
                     class="action-remove"
@@ -48,11 +23,15 @@
 
     <!--
     /**
-     *
      * @note File data
-     * @note This is a UI element prepared to work with UI forms that save uploaded data using a provider. To could save data using this UI element in a normal form, we have to set the uploaded data to the form
-     * @note It is necessary to format the file data like that so it could be save (if we are going to use this field in the customer form) by the customer attribute form save logic: 'attribute': [{'index': {'file': 'value'}}]
-     *
+     * @note This is a UI element prepared to work with UI forms that
+     *       save uploaded data using a provider.
+     *       To could save data using this UI element in a normal form,
+     *       we have to set the uploaded data to the form
+     * @note It is necessary to format the file data like that so it could
+     *       be save (if we are going to use this field in the customer form)
+     *       by the customer attribute form save logic:
+     *       'attribute': [{'index': {'file': 'value'}}]
      */
     -->
     <input type="hidden" attr="name: $parent.fieldAttribute + '[0][file]', value: $file.file"/>

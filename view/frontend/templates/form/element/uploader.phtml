@@ -1,55 +1,21 @@
 <?php
 /**
- *
  * @description Uploader template
- *
- * @author Bina Commerce      <https://www.binacommerce.com>
- * @author C. M. de Picciotto <cmdepicciotto@binacommerce.com>
- *
+ * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 ?>
 
 <?php
 /**
- *
  * @var \Bina\CustomerFile\Block\Uploader $block
- *
  */
 ?>
 
-<?php
-/**
- *
- * @note Attribute fieldset
- *
- */
-?>
 <fieldset class="fieldset" id="<?= $block->getAttributeCode() ?>">
-    <?php
-    /**
-     *
-     * @note Legend
-     *
-     */
-    ?>
     <legend class="legend">
-        <?php
-        /**
-         *
-         * @note Title
-         *
-         */
-        ?>
         <span><?= $block->escapeHtml($block->getAttributeLabel()) ?></span>
     </legend>
 
-    <?php
-    /**
-     *
-     * @note Uploader
-     *
-     */
-    ?>
     <div class="field uploader-container">
         <!-- ko scope: '<?= $block->escapeJs($block->getUploaderId()) ?>' -->
             <!-- ko template: getTemplate() --><!-- /ko -->
@@ -57,13 +23,6 @@
     </div>
 </fieldset>
 
-<?php
-/**
- *
- * @note Init uploader
- *
- */
-?>
 <script type="text/x-magento-init">
 {
     "*": {

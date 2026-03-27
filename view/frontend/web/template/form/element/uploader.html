@@ -1,19 +1,13 @@
 <!--
 /**
- *
  * @description Uploader template
- *
- * @author Bina Commerce      <https://www.binacommerce.com>
- * @author C. M. de Picciotto <cmdepicciotto@binacommerce.com>
- *
+ * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 -->
 
 <!--
 /**
- *
  * @note Field label
- *
  */
 -->
 <label class="label" if="$data.label" attr="for: uid" visible="$data.labelVisible">
@@ -22,27 +16,11 @@
 
 <!--
 /**
- *
  * @note Field container
- *
  */
 -->
 <div class="control" css="'_with-tooltip': $data.tooltip">
-    <!--
-    /**
-     *
-     * @note Uploader field container
-     *
-     */
-    -->
     <div class="file-uploader" data-role="drop-zone" css="_loading: isLoading">
-        <!--
-        /**
-         *
-         * @note Uploader field
-         *
-         */
-        -->
         <div class="file-uploader-area">
             <input type="file" afterRender="onElementRender" attr="id: uid, name: fieldName" disable="disabled"/>
             <label class="file-uploader-button action-default" attr="for: uid" translate="'Upload'"/>
@@ -50,71 +28,22 @@
             <render args="fallbackResetTpl" if="$data.showFallbackReset && $data.isDifferedFromDefault"/>
         </div>
 
-        <!--
-        /**
-         *
-         * @note Tooltip
-         *
-         */
-        -->
         <render args="tooltipTpl" if="$data.tooltip"/>
 
-        <!--
-        /**
-         *
-         * @note Notice
-         *
-         */
-        -->
         <div class="field-note" if="$data.notice" attr="id: noticeId">
             <span html="notice"/>
         </div>
 
-        <!--
-        /**
-         *
-         * @note Error
-         *
-         */
-        -->
         <label class="field-error" if="error" attr="for: uid" text="error"/>
 
-        <!--
-        /**
-         *
-         * @note File
-         *
-         */
-        -->
         <each args="data: value, as: '$file'" render="$parent.getPreviewTmpl($file)"/>
 
-        <!--
-        /**
-         *
-         * @note File uploader summary
-         *
-         */
-        -->
         <div class="file-uploader-summary">
-            <!--
-            /**
-             *
-             * @note Placeholder
-             *
-             */
-            -->
             <label attr="for: uid" class="file-uploader-placeholder">
                 <span class="file-uploader-placeholder-text" translate="'Click here or drag and drop to add your file.'"/>
             </label>
         </div>
     </div>
 
-    <!--
-    /**
-     *
-     * @note Service template
-     *
-     */
-    -->
     <render args="$data.service.template" if="$data.hasService()"/>
 </div>

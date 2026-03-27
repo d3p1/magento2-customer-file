@@ -1,16 +1,6 @@
 /**
- *
  * @description Module styles
- *
- * @author Bina Commerce      <https://www.binacommerce.com>
- * @author C. M. de Picciotto <cmdepicciotto@binacommerce.com>
- *
- */
-
-/**
- *
- * @note Variables
- *
+ * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
 @attribute-icon-file__content                     : '\e626';
 @attribute-icon-delete__content                   : '\e604';
@@ -27,60 +17,20 @@
 @attribute-file-uploader-placeholder-icon__color  : @color-gray80;
 @attribute-file-uploader-placeholder-icon__z-index: 1;
 
-/**
- *
- * @note Common
- *
- */
 & when (@media-common = true) {
-  /**
-   *
-   * @note Uploader container
-   *
-   */
   .uploader-container {
-    /**
-     *
-     * @note File uploader
-     *
-     */
     .file-uploader {
-      /**
-       *
-       * @note Loading flag
-       *
-       */
       &._loading {
-        /**
-         *
-         * @note File uploader area
-         *
-         */
         .file-uploader-area {
-          /**
-           *
-           * @note File uploader spinner
-           *
-           */
           .file-uploader-spinner {
             display: inline-block;
           }
         }
       }
 
-      /**
-       *
-       * @note File uploader area
-       *
-       */
       .file-uploader-area {
         position: relative;
 
-        /**
-         *
-         * @note File input
-         *
-         */
         input[type='file'] {
           cursor    : pointer;
           opacity   : 0;
@@ -89,22 +39,12 @@
           visibility: hidden;
           width     : 0;
 
-          /**
-           *
-           * @note Focus flag
-           *
-           */
           &:focus {
             + .file-uploader-button {
               box-shadow: 0 0 0 1px @attribute-file-uploader-preview-focus__color;
             }
           }
 
-          /**
-           *
-           * @note Disabled flag
-           *
-           */
           &:disabled {
             + .file-uploader-button {
               cursor        : default;
@@ -114,11 +54,6 @@
           }
         }
 
-        /**
-         *
-         * @note File uploader button
-         *
-         */
         .file-uploader-button {
           background    : @color-gray-darken0;
           border        : 1px solid @color-gray_light;
@@ -134,11 +69,6 @@
           vertical-align: middle;
         }
 
-        /**
-         *
-         * @note File uploader spinner
-         *
-         */
         .file-uploader-spinner {
           background-image   : url('@{baseDir}images/loader-1.gif');
           background-position: 50%;
@@ -152,26 +82,11 @@
         }
       }
 
-      /**
-       *
-       * @note File uploader summary
-       *
-       */
       .file-uploader-summary {
         display       : inline-block;
         vertical-align: top;
 
-        /**
-         *
-         * @note File uploader preview
-         *
-         */
         .file-uploader-preview {
-          /**
-           *
-           * @note Remove action
-           *
-           */
           .action-remove {
             &:extend(.abs-action-reset all);
             .lib-icon-font(
@@ -194,49 +109,23 @@
             width          : 25px;
             z-index        : 2;
 
-            /**
-             *
-             * @note Focus flag
-             *
-             */
             &:focus {
               box-shadow: 0 0 0 1px @attribute-file-uploader-preview-focus__color;
             }
           }
 
-          /**
-           *
-           * @note Hover flag
-           *
-           */
           &:hover {
-            /**
-             *
-             * @note Preview image
-             * @note Preview link
-             *
-             */
             .preview-image img,
             .preview-link:before {
               opacity: @attribute-file-uploader-preview__opacity;
             }
           }
 
-          /**
-           *
-           * @note Preview link
-           *
-           */
           .preview-link {
             display: block;
             height : 100%;
           }
 
-          /**
-           *
-           * @note Preview image
-           *
-           */
           .preview-image img {
             bottom    : 0;
             left      : 0;
@@ -250,12 +139,6 @@
           }
         }
 
-        /**
-         *
-         * @note File uploader preview
-         * @note File uploader placeholder
-         *
-         */
         .file-uploader-preview,
         .file-uploader-placeholder {
           background : @attribute-file-uploader-preview__background-color;
@@ -271,11 +154,6 @@
           width      : @attribute-file-uploader-preview__width;
         }
 
-        /**
-         *
-         * @note File uploader placeholder
-         *
-         */
         .file-uploader-placeholder {
           .lib-icon-font(
             @attribute-icon-file__content,
@@ -285,11 +163,6 @@
             @_icon-font-color-hover: @attribute-file-uploader-placeholder-icon__color
           );
 
-          /**
-           *
-           * @note Before element
-           *
-           */
           &:before {
             left    : 0;
             position: absolute;
@@ -298,11 +171,6 @@
             z-index : @attribute-file-uploader-placeholder-icon__z-index;
           }
 
-          /**
-           *
-           * @note File uploader placeholder text
-           *
-           */
           .file-uploader-placeholder-text {
             bottom       : 0;
             color        : @color-blue-dodger;
