@@ -3,7 +3,7 @@
  * @description Uploader controller
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-namespace Bina\CustomerFile\Controller;
+namespace D3p1\CustomerFile\Controller;
 
 use Exception;
 use Magento\Framework\App\Action\Action;
@@ -12,7 +12,7 @@ use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\App\Request\Http as HttpRequest;
-use Bina\CustomerFile\Api\FileManagementInterface;
+use D3p1\CustomerFile\Api\FileManagementInterface;
 
 class Uploader extends Action implements HttpPostActionInterface
 {

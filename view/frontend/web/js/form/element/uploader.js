@@ -14,8 +14,8 @@ define([
          *
          */
         defaults: {
-            template      : 'Bina_CustomerFile/form/element/uploader',
-            previewTmpl   : 'Bina_CustomerFile/form/element/uploader/preview',
+            template      : 'D3p1_CustomerFile/form/element/uploader',
+            previewTmpl   : 'D3p1_CustomerFile/form/element/uploader/preview',
             fieldScope    : 'customer',
             fieldAttribute: ''
         },

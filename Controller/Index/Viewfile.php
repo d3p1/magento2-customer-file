@@ -3,7 +3,7 @@
  * @description View file
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-namespace Bina\CustomerFile\Controller\Index;
+namespace D3p1\CustomerFile\Controller\Index;
 
 use Magento\Framework\Exception\NotFoundException;
 use Magento\Framework\Url\DecoderInterface;
@@ -16,7 +16,7 @@ use Magento\Framework\Controller\Result\RawFactory;
 use Magento\Framework\Controller\Result\Raw;
 use Magento\MediaStorage\Helper\File\Storage;
 use Magento\Customer\Api\CustomerMetadataInterface;
-use Bina\CustomerFile\Api\FileManagementInterface;
+use D3p1\CustomerFile\Api\FileManagementInterface;
 
 class Viewfile extends Action
 {

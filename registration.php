@@ -5,6 +5,6 @@
  */
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Bina_CustomerFile',
+    'D3p1_CustomerFile',
     __DIR__
 );

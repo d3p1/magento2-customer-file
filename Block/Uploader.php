@@ -3,14 +3,14 @@
  * @description Uploader block
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-namespace Bina\CustomerFile\Block;
+namespace D3p1\CustomerFile\Block;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Customer\Api\CustomerMetadataInterface;
 use Magento\Customer\Api\Data\CustomerInterface;
-use Bina\CustomerFile\Api\FileManagementInterface;
+use D3p1\CustomerFile\Api\FileManagementInterface;
 
 class Uploader extends Template
 {
@@ -47,7 +47,7 @@ class Uploader extends Template
     /**
      * @var string
      */
-    protected $_template = 'Bina_CustomerFile::form/element/uploader.phtml';
+    protected $_template = 'D3p1_CustomerFile::form/element/uploader.phtml';
 
     /**
      * Constructor

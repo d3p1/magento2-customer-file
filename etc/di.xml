@@ -6,5 +6,5 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Bina\CustomerFile\Api\FileManagementInterface" type="Bina\CustomerFile\Model\FileManagement"/>
+    <preference for="D3p1\CustomerFile\Api\FileManagementInterface" type="D3p1\CustomerFile\Model\FileManagement"/>
 </config>

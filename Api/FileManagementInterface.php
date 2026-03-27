@@ -3,7 +3,7 @@
  * @description File management interface
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-namespace Bina\CustomerFile\Api;
+namespace D3p1\CustomerFile\Api;
 
 use Magento\Framework\Exception\LocalizedException;
 

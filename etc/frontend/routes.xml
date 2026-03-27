@@ -15,7 +15,7 @@
          */
         -->
         <route id="customer">
-            <module name="Bina_CustomerFile" after="Magento_Customer"/>
+            <module name="D3p1_CustomerFile" after="Magento_Customer"/>
         </route>
     </router>
 </config>

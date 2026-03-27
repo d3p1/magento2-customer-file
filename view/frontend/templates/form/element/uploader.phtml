@@ -7,7 +7,7 @@
 
 <?php
 /**
- * @var \Bina\CustomerFile\Block\Uploader $block
+ * @var \D3p1\CustomerFile\Block\Uploader $block
  */
 ?>
 
@@ -29,7 +29,7 @@
         "Magento_Ui/js/core/app": {
             "components": {
                 "<?= $block->escapeJs($block->getUploaderId()) ?>": {
-                    "component"        : "Bina_CustomerFile/js/form/element/uploader",
+                    "component"        : "D3p1_CustomerFile/js/form/element/uploader",
                     "label"            : "<?php echo $block->getAttributeLabel() ?>",
                     "allowedExtensions": <?php echo $block->getAttributeAllowedExtensionsJson() ?>,
                     "fieldAttribute"   : "<?php echo $block->getAttributeCode() ?>",

@@ -3,7 +3,7 @@
  * @description File management model
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-namespace Bina\CustomerFile\Model;
+namespace D3p1\CustomerFile\Model;
 
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Filesystem;
@@ -15,7 +15,7 @@ use Magento\Customer\Model\FileUploaderFactory;
 use Magento\Customer\Model\FileUploader;
 use Magento\Customer\Model\FileProcessorFactory;
 use Magento\Customer\Model\FileProcessor;
-use Bina\CustomerFile\Api\FileManagementInterface;
+use D3p1\CustomerFile\Api\FileManagementInterface;
 
 class FileManagement implements FileManagementInterface
 {
