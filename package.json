@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/d3p1/module-customer-file.git"
+    "url": "git+https://github.com/d3p1/magento2-customer-file.git"
   },
   "author": "C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/d3p1/module-customer-file/issues"
+    "url": "https://github.com/d3p1/magento2-customer-file/issues"
   },
-  "homepage": "https://github.com/d3p1/module-customer-file#readme",
+  "homepage": "https://github.com/d3p1/magento2-customer-file#readme",
   "keywords": [],
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
