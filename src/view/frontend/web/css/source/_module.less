@@ -2,189 +2,189 @@
  * @description Module styles
  * @author      C. M. de Picciotto <d3p1@d3p1.dev> (https://d3p1.dev/)
  */
-@attribute-icon-file__content                     : '\e626';
-@attribute-icon-delete__content                   : '\e604';
-@attribute-file-uploader-preview__opacity         : .7;
+@attribute-icon-file__content: '\e626';
+@attribute-icon-delete__content: '\e604';
+@attribute-file-uploader-preview__opacity: .7;
 @attribute-file-uploader-preview__background-color: @color-white;
-@attribute-file-uploader-preview__border-color    : @color-lighter-grayish;
-@attribute-file-uploader-preview__width           : 150px;
-@attribute-file-uploader-preview__height          : @attribute-file-uploader-preview__width;
-@attribute-file-uploader-preview-focus__color     : @color-blue2;
-@attribute-file-uploader-spinner-dimensions       : 15px;
-@attribute-file-uploader-delete-icon__font-size   : 2.3rem;
-@attribute-file-uploader-delete-icon__color       : @color-brownie;
+@attribute-file-uploader-preview__border-color: @color-lighter-grayish;
+@attribute-file-uploader-preview__width: 150px;
+@attribute-file-uploader-preview__height: @attribute-file-uploader-preview__width;
+@attribute-file-uploader-preview-focus__color: @color-blue2;
+@attribute-file-uploader-spinner-dimensions: 15px;
+@attribute-file-uploader-delete-icon__font-size: 2.3rem;
+@attribute-file-uploader-delete-icon__color: @color-brownie;
 @attribute-file-uploader-delete-icon__hover__color: @color-brownie-vanilla;
-@attribute-file-uploader-placeholder-icon__color  : @color-gray80;
+@attribute-file-uploader-placeholder-icon__color: @color-gray80;
 @attribute-file-uploader-placeholder-icon__z-index: 1;
 
 & when (@media-common = true) {
-  .uploader-container {
-    .file-uploader {
-      &._loading {
-        .file-uploader-area {
-          .file-uploader-spinner {
-            display: inline-block;
-          }
-        }
-      }
-
-      .file-uploader-area {
-        position: relative;
-
-        input[type='file'] {
-          cursor    : pointer;
-          opacity   : 0;
-          overflow  : hidden;
-          position  : absolute;
-          visibility: hidden;
-          width     : 0;
-
-          &:focus {
-            + .file-uploader-button {
-              box-shadow: 0 0 0 1px @attribute-file-uploader-preview-focus__color;
+    .uploader-container {
+        .file-uploader {
+            &._loading {
+                .file-uploader-area {
+                    .file-uploader-spinner {
+                        display: inline-block;
+                    }
+                }
             }
-          }
 
-          &:disabled {
-            + .file-uploader-button {
-              cursor        : default;
-              opacity       : .5;
-              pointer-events: none;
+            .file-uploader-area {
+                position: relative;
+
+                input[type='file'] {
+                    cursor: pointer;
+                    opacity: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    visibility: hidden;
+                    width: 0;
+
+                    &:focus {
+                        + .file-uploader-button {
+                            box-shadow: 0 0 0 1px @attribute-file-uploader-preview-focus__color;
+                        }
+                    }
+
+                    &:disabled {
+                        + .file-uploader-button {
+                            cursor: default;
+                            opacity: .5;
+                            pointer-events: none;
+                        }
+                    }
+                }
+
+                .file-uploader-button {
+                    background: @color-gray-darken0;
+                    border: 1px solid @color-gray_light;
+                    box-sizing: border-box;
+                    color: @color-black_dark;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    line-height: 1.6rem;
+                    margin: 0;
+                    padding: 7px 15px;
+                    vertical-align: middle;
+                }
+
+                .file-uploader-spinner {
+                    background-image: url('@{baseDir}images/loader-1.gif');
+                    background-position: 50%;
+                    background-repeat: no-repeat;
+                    background-size: @attribute-file-uploader-spinner-dimensions;
+                    display: none;
+                    height: 30px;
+                    margin-left: @indent__s;
+                    vertical-align: top;
+                    width: @attribute-file-uploader-spinner-dimensions;
+                }
             }
-          }
-        }
 
-        .file-uploader-button {
-          background    : @color-gray-darken0;
-          border        : 1px solid @color-gray_light;
-          box-sizing    : border-box;
-          color         : @color-black_dark;
-          cursor        : pointer;
-          display       : inline-block;
-          font-size     : 1.4rem;
-          font-weight   : 600;
-          line-height   : 1.6rem;
-          margin        : 0;
-          padding       : 7px 15px;
-          vertical-align: middle;
-        }
+            .file-uploader-summary {
+                display: inline-block;
+                vertical-align: top;
 
-        .file-uploader-spinner {
-          background-image   : url('@{baseDir}images/loader-1.gif');
-          background-position: 50%;
-          background-repeat  : no-repeat;
-          background-size    : @attribute-file-uploader-spinner-dimensions;
-          display            : none;
-          height             : 30px;
-          margin-left        : @indent__s;
-          vertical-align     : top;
-          width              : @attribute-file-uploader-spinner-dimensions;
-        }
-      }
+                .file-uploader-preview {
+                    .action-remove {
+                        &:extend(.abs-action-reset all);
+                        .lib-icon-font(
+                            @attribute-icon-delete__content,
+                            @_icon-font            : @icons__font-name,
+                            @_icon-font-size       : @attribute-file-uploader-delete-icon__font-size,
+                            @_icon-font-color      : @attribute-file-uploader-delete-icon__color,
+                            @_icon-font-color-hover: @attribute-file-uploader-delete-icon__hover__color,
+                            @_icon-font-text-hide  : true,
+                            @_icon-font-display    : block
+                        );
+                        bottom: 4px;
+                        cursor: pointer;
+                        display: block;
+                        height: 27px;
+                        left: 6px;
+                        padding: 2px;
+                        position: absolute;
+                        text-decoration: none;
+                        width: 25px;
+                        z-index: 2;
 
-      .file-uploader-summary {
-        display       : inline-block;
-        vertical-align: top;
+                        &:focus {
+                            box-shadow: 0 0 0 1px @attribute-file-uploader-preview-focus__color;
+                        }
+                    }
 
-        .file-uploader-preview {
-          .action-remove {
-            &:extend(.abs-action-reset all);
-            .lib-icon-font(
-              @attribute-icon-delete__content,
-              @_icon-font            : @icons__font-name,
-              @_icon-font-size       : @attribute-file-uploader-delete-icon__font-size,
-              @_icon-font-color      : @attribute-file-uploader-delete-icon__color,
-              @_icon-font-color-hover: @attribute-file-uploader-delete-icon__hover__color,
-              @_icon-font-text-hide  : true,
-              @_icon-font-display    : block
-            );
-            bottom         : 4px;
-            cursor         : pointer;
-            display        : block;
-            height         : 27px;
-            left           : 6px;
-            padding        : 2px;
-            position       : absolute;
-            text-decoration: none;
-            width          : 25px;
-            z-index        : 2;
+                    &:hover {
+                        .preview-image img,
+                        .preview-link:before {
+                            opacity: @attribute-file-uploader-preview__opacity;
+                        }
+                    }
 
-            &:focus {
-              box-shadow: 0 0 0 1px @attribute-file-uploader-preview-focus__color;
+                    .preview-link {
+                        display: block;
+                        height: 100%;
+                    }
+
+                    .preview-image img {
+                        bottom: 0;
+                        left: 0;
+                        margin: auto;
+                        max-height: 100%;
+                        max-width: 100%;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        z-index: 1;
+                    }
+                }
+
+                .file-uploader-preview,
+                .file-uploader-placeholder {
+                    background: @attribute-file-uploader-preview__background-color;
+                    border: 1px solid @attribute-file-uploader-preview__border-color;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    display: block;
+                    height: @attribute-file-uploader-preview__height;
+                    line-height: 1;
+                    margin: @indent__s @indent__m @indent__s 0;
+                    overflow: hidden;
+                    position: relative;
+                    width: @attribute-file-uploader-preview__width;
+                }
+
+                .file-uploader-placeholder {
+                    .lib-icon-font(
+                        @attribute-icon-file__content,
+                        @_icon-font            : @icons__font-name,
+                        @_icon-font-size       : 5rem,
+                        @_icon-font-color      : @attribute-file-uploader-placeholder-icon__color,
+                        @_icon-font-color-hover: @attribute-file-uploader-placeholder-icon__color
+                    );
+
+                    &:before {
+                        left: 0;
+                        position: absolute;
+                        right: 0;
+                        top: 20px;
+                        z-index: @attribute-file-uploader-placeholder-icon__z-index;
+                    }
+
+                    .file-uploader-placeholder-text {
+                        bottom: 0;
+                        color: @color-blue-dodger;
+                        font-size: 1.1rem;
+                        left: 0;
+                        line-height: @line-height__base;
+                        margin-bottom: 15%;
+                        padding: 0 @indent__base;
+                        position: absolute;
+                        right: 0;
+                        text-align: center;
+                    }
+                }
             }
-          }
-
-          &:hover {
-            .preview-image img,
-            .preview-link:before {
-              opacity: @attribute-file-uploader-preview__opacity;
-            }
-          }
-
-          .preview-link {
-            display: block;
-            height : 100%;
-          }
-
-          .preview-image img {
-            bottom    : 0;
-            left      : 0;
-            margin    : auto;
-            max-height: 100%;
-            max-width : 100%;
-            position  : absolute;
-            right     : 0;
-            top       : 0;
-            z-index   : 1;
-          }
         }
-
-        .file-uploader-preview,
-        .file-uploader-placeholder {
-          background : @attribute-file-uploader-preview__background-color;
-          border     : 1px solid @attribute-file-uploader-preview__border-color;
-          box-sizing : border-box;
-          cursor     : pointer;
-          display    : block;
-          height     : @attribute-file-uploader-preview__height;
-          line-height: 1;
-          margin     : @indent__s @indent__m @indent__s 0;
-          overflow   : hidden;
-          position   : relative;
-          width      : @attribute-file-uploader-preview__width;
-        }
-
-        .file-uploader-placeholder {
-          .lib-icon-font(
-            @attribute-icon-file__content,
-            @_icon-font            : @icons__font-name,
-            @_icon-font-size       : 5rem,
-            @_icon-font-color      : @attribute-file-uploader-placeholder-icon__color,
-            @_icon-font-color-hover: @attribute-file-uploader-placeholder-icon__color
-          );
-
-          &:before {
-            left    : 0;
-            position: absolute;
-            right   : 0;
-            top     : 20px;
-            z-index : @attribute-file-uploader-placeholder-icon__z-index;
-          }
-
-          .file-uploader-placeholder-text {
-            bottom       : 0;
-            color        : @color-blue-dodger;
-            font-size    : 1.1rem;
-            left         : 0;
-            line-height  : @line-height__base;
-            margin-bottom: 15%;
-            padding      : 0 @indent__base;
-            position     : absolute;
-            right        : 0;
-            text-align   : center;
-          }
-        }
-      }
     }
-  }
 }
