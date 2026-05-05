@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/d3p1/magento2-customer-file/compare/v1.0.0...v1.0.1) (2026-05-05)
+
+
+### Bug Fixes
+
+* adjust coding style guidelines [[#1](https://github.com/d3p1/magento2-customer-file/issues/1)] ([31e56f5](https://github.com/d3p1/magento2-customer-file/commit/31e56f5d6e4c3a53e77a00915edf9bbbb5259491))
+
 # 1.0.0 (2026-04-28)
 
 
